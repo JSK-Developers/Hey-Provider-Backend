@@ -4,32 +4,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class UserRegistration {
+@Table(name="Registration")
+public class Registration {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String userName;
-    private String email;
-    private String password;
-    private String confirmPassword;
-	public UserRegistration(String userName, String email, String password, String confirmPassword) {
-		super();
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.confirmPassword = confirmPassword;
-	}
-	public UserRegistration(){}
+	private String email;
+	private String password;
+	private String confirmPassword;
+	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", email=" + email + ", password=" + password
+		return "Registration [id=" + id + ", userName=" + userName + ", email=" + email + ", password=" + password
 				+ ", confirmPassword=" + confirmPassword + "]";
 	}
-	
-    public Long getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
@@ -59,7 +53,15 @@ public class UserRegistration {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+	public Registration(Long id, String userName, String email, String password, String confirmPassword) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+	}
+	public Registration() {}
 	
 	
-
 }

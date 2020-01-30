@@ -9,9 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hp</groupId>
-	<artifactId>Hey_Provider_Backend</artifactId>
+	<artifactId>Hey-Provider_Backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Hey_Provider_Backend</name>
+	<packaging>war</packaging>
+	<name>Hey-Provider_Backend</name>
 	<description>Complete Web Application</description>
 
 	<properties>
@@ -29,15 +30,14 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
