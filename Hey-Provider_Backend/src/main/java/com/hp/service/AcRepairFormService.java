@@ -3,26 +3,32 @@ package com.hp.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.hp.entity.Registration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.hp.entity.AcRepairFormEntity;
+import com.hp.repository.AcRepairFormRepository;
+
+@Service
 public class AcRepairFormService {
 
-	public List<Registration> getAllUser(){
-		return(List<Registration>) registrationRepository.findAll();
+	@Autowired
+	AcRepairFormRepository acRepairFormRepository;
+	
+	public List<AcRepairFormEntity> allAcUser(){
+		return(List<AcRepairFormEntity>) acRepairFormRepository.findAll();
 	}
-	public void addUser(Registration registration) {
-		registrationRepository.save(registration);
+	public void addAcUser(AcRepairFormEntity acRepairFormEntity) {
+		acRepairFormRepository.save(acRepairFormEntity);
 	}
-	public Optional<Registration> getSingleUser(Long id){
-		return registrationRepository.findById(id);
+	public Optional<AcRepairFormEntity> getSingleAcUser(Long id){
+		return acRepairFormRepository.findById(id);
 	} 
-	public void updateUser(Long id,Registration registration) {
-		registrationRepository.save(registration);
+	public void updateAcUser(Long id,AcRepairFormEntity acRepairFormEntity) {
+		acRepairFormRepository.save(acRepairFormEntity);
 	}
-	public void deleteUser(Long id) {
-		registrationRepository.deleteById(id);
+	public void deleteAcUser(Long id) {
+		acRepairFormRepository.deleteById(id);
 	}
-	public Registration findByUserName(String name) {
-		return registrationRepository.findByUserName(name);
-	}
+	
 }

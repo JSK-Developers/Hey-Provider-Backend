@@ -1,5 +1,9 @@
 package com.hp.repository;
 
-public class AcRepairFormRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.hp.entity.AcRepairFormEntity;
+
+public interface AcRepairFormRepository extends CrudRepository<AcRepairFormEntity, Long>{
 
 }
