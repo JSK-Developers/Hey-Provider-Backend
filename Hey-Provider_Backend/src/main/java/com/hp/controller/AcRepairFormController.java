@@ -21,10 +21,11 @@ public class AcRepairFormController {
 
 	@Autowired
 	AcRepairFormService acRepairFormService;
+	AcRepairFormEntity acRepairFormEntity;
 	
 	@RequestMapping("/AC_Users")
 	public List<AcRepairFormEntity> getUser(){
-		return (List<AcRepairFormEntity>) acRepairFormService.allAcUser();
+		return (List<AcRepairFormEntity>) acRepairFormService.getAllAcUser();
 	}
 	
 	@PostMapping("/AC_Users")

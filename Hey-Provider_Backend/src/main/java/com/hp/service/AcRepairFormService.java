@@ -15,7 +15,7 @@ public class AcRepairFormService {
 	@Autowired
 	AcRepairFormRepository acRepairFormRepository;
 	
-	public List<AcRepairFormEntity> allAcUser(){
+	public List<AcRepairFormEntity> getAllAcUser(){
 		return(List<AcRepairFormEntity>) acRepairFormRepository.findAll();
 	}
 	public void addAcUser(AcRepairFormEntity acRepairFormEntity) {

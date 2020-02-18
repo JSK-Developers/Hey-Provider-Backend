@@ -24,6 +24,11 @@ public class RegistrationService {
 	public Optional<Registration> getSingleUser(Long id){
 		return registrationRepository.findById(id);
 	} 
+//	
+	public List<Registration> getSingleUser(String userName){
+		return registrationRepository.findUser(userName);
+	}
+//	
 	public void updateUser(Long id,Registration registration) {
 		registrationRepository.save(registration);
 	}
@@ -33,6 +38,7 @@ public class RegistrationService {
 	public Registration findByUserName(String name) {
 		return registrationRepository.findByUserName(name);
 	}
+	
 	
 	
 }

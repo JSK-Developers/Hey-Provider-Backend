@@ -10,9 +10,10 @@ import javax.persistence.Table;
 @Table(name="Registration")
 public class Registration {
 
+	
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private Long id;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 	private String userName;
 	private String email;
 	private String password;
@@ -20,15 +21,15 @@ public class Registration {
 	
 	@Override
 	public String toString() {
-		return "Registration [id=" + id + ", userName=" + userName + ", email=" + email + ", password=" + password
+		return "Registration [ userName=" + userName + ", email=" + email + ", password=" + password
 				+ ", confirmPassword=" + confirmPassword + "]";
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+//	public Long getId() {
+//		return id;
+//	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 	public String getUserName() {
 		return userName;
 	}
@@ -55,7 +56,7 @@ public class Registration {
 	}
 	public Registration(Long id, String userName, String email, String password, String confirmPassword) {
 		super();
-		this.id = id;
+//		this.id = id;
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
