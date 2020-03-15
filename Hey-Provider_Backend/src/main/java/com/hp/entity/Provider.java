@@ -42,6 +42,7 @@ public class Provider {
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 		this.phonenumber = phonenumber;
+		
 	}
 
 
