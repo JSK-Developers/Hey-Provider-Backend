@@ -15,6 +15,7 @@ public class Registration {
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 //	private Long id;
 	@Id
+	@Size(max = 100)
 	private String userName;
 	private String email;
 	private String password;

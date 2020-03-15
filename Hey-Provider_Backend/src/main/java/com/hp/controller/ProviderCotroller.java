@@ -19,8 +19,8 @@ import com.hp.entity.Provider;
 import com.hp.service.ProviderService;
 
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/apiProvider")
 @RestController
-@RequestMapping("/api")
 public class ProviderCotroller {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class ProviderCotroller {
 		return (List<Provider>) providerService.getAllProvider();
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/provider")
 	public void addProvider(@RequestBody Provider provider) {
 		providerService.createProvider(provider);
 	}
