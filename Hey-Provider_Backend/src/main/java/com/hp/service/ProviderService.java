@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.hp.entity.Provider;
 import com.hp.entity.Registration;
+import com.hp.exception.ResourceNotFoundException;
 import com.hp.repository.ProviderRepository;
 
 @Component
@@ -31,11 +32,31 @@ public class ProviderService{
 		return providerRepository.findById(id);
 	}
 
-	public void updateProvider(Long id, Provider provider) {
-		// TODO Auto-generated method stub
-		providerRepository.save(provider);
+//	public void updateProvider(Long id, Provider provider) {
+//		// TODO Auto-generated method stub
+//		providerRepository.save(provider);
+//	}
+	public Provider getSingleProviderById(Long id) {
+		return providerRepository.findById(id).orElse(null);
 	}
-
+	public Provider updateProvider(Provider provider) {
+		Optional<Provider> user=this.providerRepository.findById(provider.getId());
+		
+		if(user.isPresent()) {
+			Provider providerUpdate=user.get();
+			providerUpdate.setId(provider.getId());
+			providerUpdate.setEmail(provider.getEmail());
+			providerUpdate.setPhoneNumber(provider.getPhoneNumber());
+			providerUpdate.setUserName(provider.getUserName());
+			providerUpdate.setPassword(provider.getPassword());
+			providerUpdate.setConfirmPassword(provider.getConfirmPassword());
+			providerRepository.save(providerUpdate);
+			return providerUpdate;
+		}else {
+			throw new ResourceNotFoundException("User Not Found With This Id: "+provider.getId());
+		}
+	}
+	
 	public void deleteProvider(Long id) {
 		// TODO Auto-generated method stub
 		providerRepository.deleteById(id);

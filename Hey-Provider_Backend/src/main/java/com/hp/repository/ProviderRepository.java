@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.hp.entity.Provider;
-import com.hp.entity.Registration;
 
 @Repository
 public interface ProviderRepository extends CrudRepository<Provider,Long>{

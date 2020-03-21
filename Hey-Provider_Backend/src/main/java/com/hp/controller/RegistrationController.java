@@ -1,10 +1,10 @@
 package com.hp.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hp.entity.Provider;
 import com.hp.entity.Registration;
 import com.hp.service.RegistrationService;
 
@@ -34,10 +33,21 @@ public class RegistrationController {
 		return (List<Registration>) registrationService.getAllUser();
 	}
 	
+	@GetMapping("/registration/{id}")
+	public Registration getSingleUserById(@PathVariable Long id){
+		return registrationService.getSingleUserById(id);
+	} 
+	
 	@PostMapping("/users")
 	public void addUser(@RequestBody Registration registration) {
 		registrationService.addUser(registration);
 	}
+	
+//    @PostMapping("/users")
+//    public ResponseEntity<Registration> createOrUpdateUser(Registration registration){
+//    	Registration updated = registrationService.createOrUpdateUser(registration);
+//        return new ResponseEntity<Registration>(updated, new HttpHeaders(), HttpStatus.OK);
+//    }
 	
 	@RequestMapping(value = "/users/{userName}",method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Registration> getSingleUser(@PathVariable String userName){
@@ -45,8 +55,9 @@ public class RegistrationController {
 	}
 		 
 	@PutMapping("/users/{id}")
-	public void updateUser(@RequestBody Registration registration,@PathVariable Long id) {
-		registrationService.updateUser(id, registration);
+	public ResponseEntity<Registration> updateUser(@PathVariable long id,@RequestBody Registration registration){
+		registration.setId(id);
+		return ResponseEntity.ok().body(this.registrationService.updateUser(registration));
 	}
 	
 	@DeleteMapping("users/{id}")

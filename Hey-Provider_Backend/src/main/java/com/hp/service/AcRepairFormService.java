@@ -2,11 +2,14 @@ package com.hp.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hp.dto.AcRepairFormDatadto;
 import com.hp.entity.AcRepairFormEntity;
+import com.hp.entity.UserServiceDataEntity;
 import com.hp.repository.AcRepairFormRepository;
 
 @Service
@@ -15,14 +18,23 @@ public class AcRepairFormService {
 	@Autowired
 	AcRepairFormRepository acRepairFormRepository;
 	
-	public List<AcRepairFormEntity> getAllAcUser(){
-		return(List<AcRepairFormEntity>) acRepairFormRepository.findAll();
+	@Autowired
+	private ConverterService converterService;
+	
+	public List<AcRepairFormDatadto> getAllAcUser(){
+		List<AcRepairFormEntity> userDataList=(List<AcRepairFormEntity>) acRepairFormRepository.findAll();
+		return userDataList.stream().map(converterService::convertToDto).collect(Collectors.toList());
+	}
+	
+	public List<AcRepairFormDatadto> getAllUserServiceData(){
+		return acRepairFormRepository.getAllUserServiceData();
 	}
 	public void addAcUser(AcRepairFormEntity acRepairFormEntity) {
 		acRepairFormRepository.save(acRepairFormEntity);
 	}
-	public Optional<AcRepairFormEntity> getSingleAcUser(Long id){
-		return acRepairFormRepository.findById(id);
+	public AcRepairFormDatadto getSingleAcUser(Long id){
+		AcRepairFormEntity singleServiceDetail = acRepairFormRepository.findById(id).orElse(null);
+		return converterService.convertToDto(singleServiceDetail);
 	} 
 	public void updateAcUser(Long id,AcRepairFormEntity acRepairFormEntity) {
 		acRepairFormRepository.save(acRepairFormEntity);

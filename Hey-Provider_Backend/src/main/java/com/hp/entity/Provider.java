@@ -2,10 +2,8 @@ package com.hp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "provider")
@@ -19,7 +17,7 @@ public class Provider {
 	private String email;
 	private String password;
 	private String confirmPassword;
-	private Integer phonenumber;
+	private long phoneNumber;
 	
 	
 	
@@ -34,14 +32,14 @@ public class Provider {
 
 
 	public Provider(Long id, String userName, String email, String password, String confirmPassword,
-			Integer phonenumber) {
+			long phoneNumber) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
-		this.phonenumber = phonenumber;
+		this.phoneNumber = phoneNumber;
 		
 	}
 
@@ -110,14 +108,14 @@ public class Provider {
 
 
 
-	public Integer getPhonenumber() {
-		return phonenumber;
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
 
 
 
-	public void setPhonenumber(Integer phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	
 	

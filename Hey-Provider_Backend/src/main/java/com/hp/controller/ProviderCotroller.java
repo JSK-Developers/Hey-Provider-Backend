@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hp.entity.Provider;
+import com.hp.entity.Registration;
 import com.hp.service.ProviderService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -43,10 +45,16 @@ public class ProviderCotroller {
 	public List<Provider> getSingleUser(@PathVariable String userName){
 		return providerService.getSingleProvider(userName);
 	}
+	
+	@GetMapping("/singleProvider/{id}")
+	public Provider getSingleProviderById(@PathVariable Long id){
+		return providerService.getSingleProviderById(id);
+	} 
 		 
 	@PutMapping("/provider/{id}")
-	public void updateUser(@RequestBody Provider provider,@PathVariable Long id) {
-		providerService.updateProvider(id, provider);
+	public ResponseEntity<Provider> updateProvider(@PathVariable long id,@RequestBody Provider provider){
+		provider.setId(id);
+		return ResponseEntity.ok().body(this.providerService.updateProvider(provider));
 	}
 	
 	@DeleteMapping("provider/{id}")
