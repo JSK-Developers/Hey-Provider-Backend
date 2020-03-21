@@ -33,8 +33,12 @@ public class AcRepairFormService {
 		acRepairFormRepository.save(acRepairFormEntity);
 	}
 	public AcRepairFormDatadto getSingleAcUser(Long id){
-		AcRepairFormEntity singleServiceDetail = acRepairFormRepository.findById(id).orElse(null);
-		return converterService.convertToDto(singleServiceDetail);
+		AcRepairFormDatadto singleServiceDetail = acRepairFormRepository.findServiceById(id);
+		return singleServiceDetail;
+	} 
+	public List<AcRepairFormDatadto> getAllDetailOfUser(Long id){
+		List<AcRepairFormDatadto> serviceDetail = acRepairFormRepository.orderDetailById(id);
+		return serviceDetail;
 	} 
 	public void updateAcUser(Long id,AcRepairFormEntity acRepairFormEntity) {
 		acRepairFormRepository.save(acRepairFormEntity);

@@ -44,6 +44,11 @@ public class AcRepairFormController {
 	public AcRepairFormDatadto getSingleAcUser(@PathVariable Long id){
 		return acRepairFormService.getSingleAcUser(id);
 	}
+	
+	@RequestMapping("/myOrder/{id}")
+	public List<AcRepairFormDatadto> getAllDetailOfUser(@PathVariable Long id){
+		return acRepairFormService.getAllDetailOfUser(id);
+	}
 		 
 //	@PutMapping("/AC_Users/{id}")
 //	public void updateAcUser(@RequestBody AcRepairFormEntity acRepairFormEntity,@PathVariable Long id) {

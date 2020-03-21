@@ -15,5 +15,8 @@ public interface AcRepairFormRepository extends CrudRepository<AcRepairFormEntit
 	public List<AcRepairFormDatadto> getAllUserServiceData();
 
 	@Query("SELECT new com.hp.dto.AcRepairFormDatadto(a.id,a.name,a.number,a.date,a.time,a.addresss1,a.landmark,a.city,a.pincode,a.total,r.userName,p.userName,a.activeStatus) FROM AcRepairFormEntity a JOIN Registration r on a.userid=r.id JOIN Provider p on a.providerid=p.id WHERE a.id = :id")
-	public long findById(@Param("id") long id);
+	public AcRepairFormDatadto findServiceById(@Param("id") long id);
+	
+	@Query("SELECT new com.hp.dto.AcRepairFormDatadto(a.id,a.name,a.number,a.date,a.time,a.addresss1,a.landmark,a.city,a.pincode,a.total,r.userName,p.userName,a.activeStatus) FROM AcRepairFormEntity a JOIN Registration r on a.userid=r.id JOIN Provider p on a.providerid=p.id WHERE a.userid = :id")
+	public List<AcRepairFormDatadto> orderDetailById(@Param("id") long id);
 }
