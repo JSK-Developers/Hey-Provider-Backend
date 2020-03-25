@@ -18,5 +18,6 @@ public interface ProviderRepository extends CrudRepository<Provider,Long>{
     public List<Provider> findUser(@Param("userName") String userName);
 //	List<Provider> findUser(String userName);
 	
+	
 }
 

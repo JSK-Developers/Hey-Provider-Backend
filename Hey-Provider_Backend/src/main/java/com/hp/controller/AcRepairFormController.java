@@ -3,17 +3,20 @@ package com.hp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hp.dto.AcRepairFormDatadto;
 import com.hp.entity.AcRepairFormEntity;
+import com.hp.entity.Registration;
 import com.hp.service.AcRepairFormService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -34,7 +37,14 @@ public class AcRepairFormController {
 	public List<AcRepairFormDatadto> getAllUserServiceData(){
 		return acRepairFormService.getAllUserServiceData();
 	}
-	
+	@GetMapping("AllCompletedData/{id}")
+	public List<AcRepairFormDatadto> getAllCompletedServiceDetail(@PathVariable Long id){
+		return acRepairFormService.getAllCompletedServiceDetail(id);
+	}
+	@GetMapping("AllPendingServiceData")
+	public List<AcRepairFormDatadto> getAllPendingServiceDetail(){
+		return acRepairFormService.getAllPendingServiceDetail();
+	}
 	@PostMapping("/AC_Service_Registration")
 	public void addAcUser(@RequestBody AcRepairFormEntity acRepairFormEntity) {
 		acRepairFormService.addAcUser(acRepairFormEntity);
@@ -58,6 +68,12 @@ public class AcRepairFormController {
 	@DeleteMapping("AC_Users/{id}")
 	public void deleteAcUser(@PathVariable Long id) {
 		acRepairFormService.deleteAcUser(id);
+	}
+	
+	@PutMapping("/setActiveStatus/{id}")
+	public ResponseEntity<AcRepairFormEntity> updateUser(@PathVariable long id,@RequestBody AcRepairFormEntity acRepairFormEntity){
+		acRepairFormEntity.setId(id);
+		return ResponseEntity.ok().body(this.acRepairFormService.updateActiveStatus(acRepairFormEntity));
 	}
 	
 }

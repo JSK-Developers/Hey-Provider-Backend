@@ -48,7 +48,13 @@ public class ProviderService{
 			providerUpdate.setEmail(provider.getEmail());
 			providerUpdate.setPhoneNumber(provider.getPhoneNumber());
 			providerUpdate.setUserName(provider.getUserName());
+			providerUpdate.setPanNumber(provider.getPanNumber());
+			providerUpdate.setAdharNumber(provider.getAdharNumber());
+			providerUpdate.setBankAccountNumber(provider.getBankAccountNumber());
+			providerUpdate.setConfirmBankAccountNumber(provider.getConfirmBankAccountNumber());
+			providerUpdate.setIfscCode(provider.getIfscCode());
 			providerUpdate.setPassword(provider.getPassword());
+			providerUpdate.setConfirmPassword(provider.getConfirmPassword());
 			providerUpdate.setConfirmPassword(provider.getConfirmPassword());
 			providerRepository.save(providerUpdate);
 			return providerUpdate;

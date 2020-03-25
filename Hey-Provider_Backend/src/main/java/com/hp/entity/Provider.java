@@ -2,6 +2,7 @@ package com.hp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,13 +12,39 @@ public class Provider {
 	
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	public Provider(Long id, String userName, String email, long phoneNumber, long panNumber, long adharNumber,
+			long bankAccountNumber, long confirmBankAccountNumber, String ifscCode, String password,
+			String confirmPassword, long activeStatus) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.panNumber = panNumber;
+		this.adharNumber = adharNumber;
+		this.bankAccountNumber = bankAccountNumber;
+		this.confirmBankAccountNumber = confirmBankAccountNumber;
+		this.ifscCode = ifscCode;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+		this.activeStatus = activeStatus;
+	}
+
+
+
 	private String userName;
 	private String email;
+	private long phoneNumber;
+	private long panNumber;
+	private long adharNumber;
+	private long bankAccountNumber;
+	private long confirmBankAccountNumber;
+	private String ifscCode;
 	private String password;
 	private String confirmPassword;
-	private long phoneNumber;
+	private long activeStatus;
 	
 	
 	
@@ -31,17 +58,199 @@ public class Provider {
 	
 
 
-	public Provider(Long id, String userName, String email, String password, String confirmPassword,
-			long phoneNumber) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.confirmPassword = confirmPassword;
-		this.phoneNumber = phoneNumber;
-		
+	
+
+
+
+
+
+
+	public long getPanNumber() {
+		return panNumber;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setPanNumber(long panNumber) {
+		this.panNumber = panNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public long getAdharNumber() {
+		return adharNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setAdharNumber(long adharNumber) {
+		this.adharNumber = adharNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public long getBankAccountNumber() {
+		return bankAccountNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setBankAccountNumber(long bankAccountNumber) {
+		this.bankAccountNumber = bankAccountNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public long getConfirmBankAccountNumber() {
+		return confirmBankAccountNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setConfirmBankAccountNumber(long confirmBankAccountNumber) {
+		this.confirmBankAccountNumber = confirmBankAccountNumber;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getIfscCode() {
+		return ifscCode;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public long getActiveStatus() {
+		return activeStatus;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setActiveStatus(long activeStatus) {
+		this.activeStatus = activeStatus;
+	}
+
+
+
+
+
+
+
 
 
 

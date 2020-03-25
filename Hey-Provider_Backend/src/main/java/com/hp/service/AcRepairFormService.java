@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.hp.dto.AcRepairFormDatadto;
 import com.hp.entity.AcRepairFormEntity;
+import com.hp.entity.Registration;
 import com.hp.entity.UserServiceDataEntity;
+import com.hp.exception.ResourceNotFoundException;
 import com.hp.repository.AcRepairFormRepository;
 
 @Service
@@ -29,6 +31,12 @@ public class AcRepairFormService {
 	public List<AcRepairFormDatadto> getAllUserServiceData(){
 		return acRepairFormRepository.getAllUserServiceData();
 	}
+	public List<AcRepairFormDatadto> getAllCompletedServiceDetail(Long id){
+		return acRepairFormRepository.getAllCompletedServiceDetail(id);
+	}
+	public List<AcRepairFormDatadto> getAllPendingServiceDetail(){
+		return acRepairFormRepository.getAllPendingServiceDetail();
+	}
 	public void addAcUser(AcRepairFormEntity acRepairFormEntity) {
 		acRepairFormRepository.save(acRepairFormEntity);
 	}
@@ -47,4 +55,19 @@ public class AcRepairFormService {
 		acRepairFormRepository.deleteById(id);
 	}
 	
+	
+	public AcRepairFormEntity updateActiveStatus(AcRepairFormEntity acRepairFormEntity) {
+		Optional<AcRepairFormEntity> user=this.acRepairFormRepository.findById(acRepairFormEntity.getId());
+		
+		if(user.isPresent()) {
+			AcRepairFormEntity userUpdate=user.get();
+			userUpdate.setActiveStatus((long) 1);
+			userUpdate.setDate(acRepairFormEntity.getDate());
+			
+			acRepairFormRepository.save(userUpdate);
+			return userUpdate;
+		}else {
+			throw new ResourceNotFoundException("User Not Found With This Id: "+acRepairFormEntity.getId());
+		}
+	}
 }
