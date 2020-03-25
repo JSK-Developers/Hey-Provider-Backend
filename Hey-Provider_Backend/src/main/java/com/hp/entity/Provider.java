@@ -8,8 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "provider")
 public class Provider {
-	
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -17,22 +16,23 @@ public class Provider {
 	private String email;
 	private String password;
 	private String confirmPassword;
-	private long phoneNumber;
+	private int phoneNumber;
+	private int panNumber;
+	private int adharNumber;
+	private int bankAccountNumber;
+	private String ifscCode;
+	private long rating;
 	
-	
-	
+
 	public Provider() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	
 
-
-	public Provider(Long id, String userName, String email, String password, String confirmPassword,
-			long phoneNumber) {
+	public Provider(Long id, String userName, String email, String password, String confirmPassword, int phoneNumber,
+			int panNumber, int adharNumber, int bankAccountNumber, String ifscCode, long rating) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -40,86 +40,102 @@ public class Provider {
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 		this.phoneNumber = phoneNumber;
+		this.panNumber = panNumber;
+		this.adharNumber = adharNumber;
+		this.bankAccountNumber = bankAccountNumber;
+		this.ifscCode = ifscCode;
+		this.rating = rating;
 		
 	}
 
 
 
+	public int getPanNumber() {
+		return panNumber;
+	}
 
+	public void setPanNumber(int panNumber) {
+		this.panNumber = panNumber;
+	}
 
+	public int getAdharNumber() {
+		return adharNumber;
+	}
 
+	public void setAdharNumber(int adharNumber) {
+		this.adharNumber = adharNumber;
+	}
+
+	public int getBankAccountNumber() {
+		return bankAccountNumber;
+	}
+
+	public void setBankAccountNumber(int bankAccountNumber) {
+		this.bankAccountNumber = bankAccountNumber;
+	}
+
+	public String getIfscCode() {
+		return ifscCode;
+	}
+
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
+	}
 	public Long getId() {
 		return id;
 	}
-
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-
 	public String getUserName() {
 		return userName;
 	}
-
-
 
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
-
 	public String getPassword() {
 		return password;
 	}
-
-
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-
-
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
-
-
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
 
-
-
-	public long getPhoneNumber() {
+	public int getPhoneNumber() {
 		return phoneNumber;
 	}
 
-
-
-	public void setPhoneNumber(long phoneNumber) {
+	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
-	
-	
+	public long getRating() {
+		return rating;
+	}
+
+	public void setRating(long rating) {
+		this.rating = rating;
+	}
+
 //
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -169,13 +185,7 @@ public class Provider {
 //		this.name = name;
 //	}
 //
-////	public long getRating() {
-////		return rating;
-////	}
-////
-////	public void setRating(long rating) {
-////		this.rating = rating;
-////	}
+	
 ////
 ////	public String getServiceType() {
 ////		return serviceType;
