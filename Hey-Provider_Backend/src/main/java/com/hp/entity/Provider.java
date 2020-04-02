@@ -35,254 +35,6 @@ public class Provider {
 
 	private String userName;
 	private String email;
-	private long phoneNumber;
-	private long panNumber;
-	private long adharNumber;
-	private long bankAccountNumber;
-	private long confirmBankAccountNumber;
-	private String ifscCode;
-	private String password;
-	private String confirmPassword;
-	private long activeStatus;
-	
-	
-	
-
-	public Provider() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	
-
-
-	
-
-
-
-
-
-
-	public long getPanNumber() {
-		return panNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setPanNumber(long panNumber) {
-		this.panNumber = panNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public long getAdharNumber() {
-		return adharNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setAdharNumber(long adharNumber) {
-		this.adharNumber = adharNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public long getBankAccountNumber() {
-		return bankAccountNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setBankAccountNumber(long bankAccountNumber) {
-		this.bankAccountNumber = bankAccountNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public long getConfirmBankAccountNumber() {
-		return confirmBankAccountNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setConfirmBankAccountNumber(long confirmBankAccountNumber) {
-		this.confirmBankAccountNumber = confirmBankAccountNumber;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public String getIfscCode() {
-		return ifscCode;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setIfscCode(String ifscCode) {
-		this.ifscCode = ifscCode;
-	}
-
-
-
-	public int getPanNumber() {
-		return panNumber;
-	}
-
-	public void setPanNumber(int panNumber) {
-		this.panNumber = panNumber;
-	}
-
-	public int getAdharNumber() {
-		return adharNumber;
-	}
-
-
-
-
-
-
-
-
-	public long getActiveStatus() {
-		return activeStatus;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void setActiveStatus(long activeStatus) {
-		this.activeStatus = activeStatus;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public int getBankAccountNumber() {
-		return bankAccountNumber;
-	}
-
-	public void setBankAccountNumber(int bankAccountNumber) {
-		this.bankAccountNumber = bankAccountNumber;
-	}
-
-	public String getIfscCode() {
-		return ifscCode;
-	}
-
-	public void setIfscCode(String ifscCode) {
-		this.ifscCode = ifscCode;
-	}
 	public Long getId() {
 		return id;
 	}
@@ -307,6 +59,54 @@ public class Provider {
 		this.email = email;
 	}
 
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public long getPanNumber() {
+		return panNumber;
+	}
+
+	public void setPanNumber(long panNumber) {
+		this.panNumber = panNumber;
+	}
+
+	public long getAdharNumber() {
+		return adharNumber;
+	}
+
+	public void setAdharNumber(long adharNumber) {
+		this.adharNumber = adharNumber;
+	}
+
+	public long getBankAccountNumber() {
+		return bankAccountNumber;
+	}
+
+	public void setBankAccountNumber(long bankAccountNumber) {
+		this.bankAccountNumber = bankAccountNumber;
+	}
+
+	public long getConfirmBankAccountNumber() {
+		return confirmBankAccountNumber;
+	}
+
+	public void setConfirmBankAccountNumber(long confirmBankAccountNumber) {
+		this.confirmBankAccountNumber = confirmBankAccountNumber;
+	}
+
+	public String getIfscCode() {
+		return ifscCode;
+	}
+
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -323,94 +123,28 @@ public class Provider {
 		this.confirmPassword = confirmPassword;
 	}
 
-	public int getPhoneNumber() {
-		return phoneNumber;
+	public long getActiveStatus() {
+		return activeStatus;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public long getRating() {
-		return rating;
+	public void setActiveStatus(long activeStatus) {
+		this.activeStatus = activeStatus;
 	}
 
-	public void setRating(long rating) {
-		this.rating = rating;
+
+
+	private long phoneNumber;
+	private long panNumber;
+	private long adharNumber;
+	private long bankAccountNumber;
+	private long confirmBankAccountNumber;
+	private String ifscCode;
+	private String password;
+	private String confirmPassword;
+	private long activeStatus;
+
+	public Provider() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-
-//
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private long id;
-//	private String userName;
-//	private String name;
-////	private long rating;
-////	private String serviceType;
-//	private String serviceName;
-//	private long age;
-//
-//	public Provider() {
-//		super();
-//	}
-//
-//	public Provider(long id, String name, long rating, String serviceType, String serviceName, long age) {
-//		super();
-//		this.id = id;
-//		this.name = name;
-////		this.rating = rating;
-////		this.serviceType = serviceType;
-//		this.serviceName = serviceName;
-//		this.age = age;
-//	}
-//
-//	public long getId() {
-//		return id;
-//	}
-//
-//	public void setId(long id) {
-//		this.id = id;
-//	}
-//
-//	public String getUserName() {
-//		return userName;
-//	}
-//
-//	public void setUserName(String userName) {
-//		this.userName = userName;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-	
-////
-////	public String getServiceType() {
-////		return serviceType;
-////	}
-////
-////	public void setServiceType(String serviceType) {
-////		this.serviceType = serviceType;
-////	}
-//
-//	public String getServiceName() {
-//		return serviceName;
-//	}
-//
-//	public void setServiceName(String serviceName) {
-//		this.serviceName = serviceName;
-//	}
-//
-//	public long getAge() {
-//		return age;
-//	}
-//
-//	public void setAge(long age) {
-//		this.age = age;
-//	}
-
 }
