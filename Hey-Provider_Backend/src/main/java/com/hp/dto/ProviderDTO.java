@@ -1,36 +1,8 @@
-package com.hp.entity;
+package com.hp.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class ProviderDTO {
 
-@Entity
-@Table(name = "provider")
-public class Provider {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	public Provider(Long id, String userName, String email, long phoneNumber, long panNumber, long adharNumber,
-			long bankAccountNumber, String ifscCode, String password,
-			 long activeStatus) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.panNumber = panNumber;
-		this.adharNumber = adharNumber;
-		this.bankAccountNumber = bankAccountNumber;
-		this.ifscCode = ifscCode;
-		this.password = password;
-		this.activeStatus = activeStatus;
-	}
-
-
-
 	private String userName;
 	private String email;
 	public Long getId() {
@@ -89,6 +61,8 @@ public class Provider {
 		this.bankAccountNumber = bankAccountNumber;
 	}
 
+	
+
 	public String getIfscCode() {
 		return ifscCode;
 	}
@@ -105,6 +79,7 @@ public class Provider {
 		this.password = password;
 	}
 
+	
 
 	public long getActiveStatus() {
 		return activeStatus;
@@ -124,8 +99,6 @@ public class Provider {
 	private String password;
 	private long activeStatus;
 
-	public Provider() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+
 }

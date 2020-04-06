@@ -66,6 +66,10 @@ public class ProviderCotroller {
 		return providerService.findByProviderName(name);
 	}
 
+	@GetMapping("{name}")
+	public long getFindId(@PathVariable String name) {
+		return providerService.getFindId(name);
+	}
 	
 	
 //	@PostMapping("/saveUserProfile")

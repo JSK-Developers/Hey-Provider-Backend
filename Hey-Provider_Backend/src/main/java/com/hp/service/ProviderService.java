@@ -51,11 +51,8 @@ public class ProviderService{
 			providerUpdate.setPanNumber(provider.getPanNumber());
 			providerUpdate.setAdharNumber(provider.getAdharNumber());
 			providerUpdate.setBankAccountNumber(provider.getBankAccountNumber());
-			providerUpdate.setConfirmBankAccountNumber(provider.getConfirmBankAccountNumber());
 			providerUpdate.setIfscCode(provider.getIfscCode());
 			providerUpdate.setPassword(provider.getPassword());
-			providerUpdate.setConfirmPassword(provider.getConfirmPassword());
-			providerUpdate.setConfirmPassword(provider.getConfirmPassword());
 			providerRepository.save(providerUpdate);
 			return providerUpdate;
 		}else {
@@ -78,5 +75,8 @@ public class ProviderService{
 		return providerRepository.findUser(userName);
 	}
 	
+	public long getFindId(String userName) {
+		return providerRepository.findId(userName);
+	}
 
 }

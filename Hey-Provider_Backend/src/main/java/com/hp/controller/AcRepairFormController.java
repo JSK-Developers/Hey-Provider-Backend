@@ -42,8 +42,8 @@ public class AcRepairFormController {
 		return acRepairFormService.getAllCompletedServiceDetail(id);
 	}
 	@GetMapping("AllPendingServiceData")
-	public List<AcRepairFormDatadto> getAllPendingServiceDetail(){
-		return acRepairFormService.getAllPendingServiceDetail();
+	public ResponseEntity<List<AcRepairFormDatadto>> getAllPendingServiceDetail(){
+		return ResponseEntity.ok().body(this.acRepairFormService.getAllPendingServiceDetail());
 	}
 	@PostMapping("/AC_Service_Registration")
 	public void addAcUser(@RequestBody AcRepairFormEntity acRepairFormEntity) {
