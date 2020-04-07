@@ -8,14 +8,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
 @Entity
-@Table(name = "User-contactus-detail")
+@Table(name = "User_contactus_detail")
 public class UserContactus {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name;
-	@Email
+	private String username;
 	private String emailAdressOfUser;
 	private String subject;
 	private String message;
@@ -28,7 +27,7 @@ public class UserContactus {
 	public UserContactus(long id, String name, @Email String emailAdressOfUser, String subject, String message) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.username = name;
 		this.emailAdressOfUser = emailAdressOfUser;
 		this.subject = subject;
 		this.message = message;
@@ -43,11 +42,11 @@ public class UserContactus {
 	}
 
 	public String getName() {
-		return name;
+		return username;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.username = name;
 	}
 
 	public String getEmailOfUser() {
