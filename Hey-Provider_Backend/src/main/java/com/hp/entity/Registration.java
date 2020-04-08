@@ -20,12 +20,11 @@ public class Registration {
 	
 	private String email;
 	private String password;
-	private String confirmPassword;
 	
 	@Override
 	public String toString() {
 		return "Registration [ userName=" + userName + ", email=" + email + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + "]";
+				 + "]";
 	}
 	public Long getId() {
 		return id;
@@ -51,19 +50,12 @@ public class Registration {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
-	public Registration(Long id, String userName, String email, String password, String confirmPassword) {
+	public Registration(Long id, String userName, String email, String password) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
-		this.confirmPassword = confirmPassword;
 	}
 	public Registration() {}
 	

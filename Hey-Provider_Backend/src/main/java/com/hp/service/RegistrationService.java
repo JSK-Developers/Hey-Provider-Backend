@@ -45,7 +45,6 @@ public class RegistrationService {
 			userUpdate.setEmail(registration.getEmail());
 			userUpdate.setUserName(registration.getUserName());
 			userUpdate.setPassword(registration.getPassword());
-			userUpdate.setConfirmPassword(registration.getConfirmPassword());
 			registrationRepository.save(userUpdate);
 			return userUpdate;
 		}else {
@@ -81,4 +80,8 @@ public class RegistrationService {
 //        }
 //    }
 //	
+	
+	public long getFindId(String userName) {
+		return registrationRepository.findId(userName);
+	}
 }

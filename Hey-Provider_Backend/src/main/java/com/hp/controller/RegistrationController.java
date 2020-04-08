@@ -70,6 +70,9 @@ public class RegistrationController {
 		return registrationService.findByUserName(name);
 	}
 	
-	
+	@GetMapping("{name}")
+	public long getFindId(@PathVariable String name) {
+		return registrationService.getFindId(name);
+	}
 	
 }

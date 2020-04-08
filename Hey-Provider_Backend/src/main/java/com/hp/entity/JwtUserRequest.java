@@ -2,7 +2,7 @@ package com.hp.entity;
 
 import java.io.Serializable;
 
-public class JwtRequest implements Serializable {
+public class JwtUserRequest implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;
 	
@@ -10,12 +10,12 @@ public class JwtRequest implements Serializable {
 	private String password;
 	
 	//need default constructor for JSON Parsing
-	public JwtRequest()
+	public JwtUserRequest()
 	{
 		
 	}
 
-	public JwtRequest(String username, String password) {
+	public JwtUserRequest(String username, String password) {
 		this.setUserName(username);
 		this.setPassword(password);
 	}

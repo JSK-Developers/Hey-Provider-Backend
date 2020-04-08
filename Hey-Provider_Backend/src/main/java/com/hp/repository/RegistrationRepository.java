@@ -18,4 +18,9 @@ public interface RegistrationRepository extends CrudRepository<Registration, Lon
 	
 	 @Query("FROM Registration r WHERE r.id = :id")
 	    public long findById(@Param("id") long id);
+	 
+	 @Query("SELECT r.id FROM Registration r WHERE r.userName = :userName")
+	 	public long findId(@Param("userName") String userName);
 }
+
+	
