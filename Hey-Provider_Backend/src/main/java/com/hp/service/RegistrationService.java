@@ -26,8 +26,15 @@ public class RegistrationService {
 	public long findById(long id) {
 		return registrationRepository.findById(id);
 	}
-
-//	
+	
+	public boolean authenticateUser(String userName,String password) {
+		Registration user=registrationRepository.findByUserName(userName);
+			if(password.equals(user.getPassword())) {
+				return true;
+			}
+			return false;
+	}
+	
 	public List<Registration> getSingleUser(String userName) {
 		return registrationRepository.findUser(userName);
 	}

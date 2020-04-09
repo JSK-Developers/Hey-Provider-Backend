@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hp.dto.UserDTO;
 import com.hp.entity.Registration;
 import com.hp.service.RegistrationService;
 
@@ -38,9 +39,15 @@ public class RegistrationController {
 		return registrationService.getSingleUserById(id);
 	} 
 	
-	@PostMapping("/users")
+	@PostMapping("/register")
 	public void addUser(@RequestBody Registration registration) {
 		registrationService.addUser(registration);
+	}
+	
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> authenticateUser(@RequestBody UserDTO userDTO) {
+		
+		return ResponseEntity.ok().body(this.registrationService.authenticateUser(userDTO.getUserName(), userDTO.getPassword()));
 	}
 	
 //    @PostMapping("/users")
