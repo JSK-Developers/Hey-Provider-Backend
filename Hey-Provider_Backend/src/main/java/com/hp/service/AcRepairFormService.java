@@ -34,8 +34,8 @@ public class AcRepairFormService {
 	public List<AcRepairFormDatadto> getAllCompletedServiceDetail(Long id){
 		return acRepairFormRepository.getAllCompletedServiceDetail(id);
 	}
-	public List<AcRepairFormDatadto> getAllPendingServiceDetail(){
-		return acRepairFormRepository.getAllPendingServiceDetail();
+	public List<AcRepairFormDatadto> getAllPendingServiceDetail(Long id){
+		return acRepairFormRepository.getAllPendingServiceDetail(id);
 	}
 	public void addAcUser(AcRepairFormEntity acRepairFormEntity) {
 		acRepairFormRepository.save(acRepairFormEntity);

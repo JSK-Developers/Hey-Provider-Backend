@@ -27,6 +27,14 @@ public class ProviderService{
 		providerRepository.save(provider);
 	}
 
+	public boolean authenticateUser(String userName,String password) {
+		Provider user=providerRepository.findByUserName(userName);
+			if(password.equals(user.getPassword())) {
+				return true;
+			}
+			return false;
+	}
+	
 	public Optional<Provider> getSingleProvider(Long id) {
 		// TODO Auto-generated method stub
 		return providerRepository.findById(id);

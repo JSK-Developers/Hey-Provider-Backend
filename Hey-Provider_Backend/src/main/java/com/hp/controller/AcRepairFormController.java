@@ -41,9 +41,9 @@ public class AcRepairFormController {
 	public List<AcRepairFormDatadto> getAllCompletedServiceDetail(@PathVariable Long id){
 		return acRepairFormService.getAllCompletedServiceDetail(id);
 	}
-	@GetMapping("AllPendingServiceData")
-	public ResponseEntity<List<AcRepairFormDatadto>> getAllPendingServiceDetail(){
-		return ResponseEntity.ok().body(this.acRepairFormService.getAllPendingServiceDetail());
+	@GetMapping("AllPendingServiceData/{id}")
+	public ResponseEntity<List<AcRepairFormDatadto>> getAllPendingServiceDetail(@PathVariable Long  id){
+		return ResponseEntity.ok().body(this.acRepairFormService.getAllPendingServiceDetail(id));
 	}
 	@PostMapping("/AC_Service_Registration")
 	public void addAcUser(@RequestBody AcRepairFormEntity acRepairFormEntity) {

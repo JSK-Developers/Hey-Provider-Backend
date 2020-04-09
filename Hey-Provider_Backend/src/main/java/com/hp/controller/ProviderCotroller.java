@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hp.dto.UserDTO;
 import com.hp.entity.Provider;
 import com.hp.service.ProviderService;
 
@@ -38,6 +39,11 @@ public class ProviderCotroller {
 	@PostMapping("/provider")
 	public void addProvider(@RequestBody Provider provider) {
 		providerService.createProvider(provider);
+	}
+	
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> authenticateUser(@RequestBody UserDTO userDTO) {
+		return ResponseEntity.ok().body(this.providerService.authenticateUser(userDTO.getUserName(), userDTO.getPassword()));
 	}
 	
 	@RequestMapping(value = "/provider/{userName}",method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

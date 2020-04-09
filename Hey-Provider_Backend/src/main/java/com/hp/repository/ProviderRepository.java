@@ -8,11 +8,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.hp.entity.Provider;
+import com.hp.entity.Registration;
 
 @Repository
 public interface ProviderRepository extends CrudRepository<Provider,Long>{
 
-	Provider findByUserName(String name);
+	
+		public Provider findByUserName(String Name);
 	
 	@Query("FROM Provider r WHERE r.userName = :userName")
     public List<Provider> findUser(@Param("userName") String userName);
