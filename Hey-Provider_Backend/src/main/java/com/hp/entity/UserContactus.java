@@ -15,7 +15,7 @@ public class UserContactus {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String username;
-	private String emailAdressOfUser;
+	private String email;
 	private String subject;
 	private String message;
 
@@ -24,11 +24,11 @@ public class UserContactus {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserContactus(long id, String name, @Email String emailAdressOfUser, String subject, String message) {
+	public UserContactus(long id, String name, String email, String subject, String message) {
 		super();
 		this.id = id;
 		this.username = name;
-		this.emailAdressOfUser = emailAdressOfUser;
+		this.email = email;
 		this.subject = subject;
 		this.message = message;
 	}
@@ -49,12 +49,12 @@ public class UserContactus {
 		this.username = name;
 	}
 
-	public String getEmailOfUser() {
-		return emailAdressOfUser;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailOfUser(String emailOfUser) {
-		this.emailAdressOfUser = emailOfUser;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSubject() {
