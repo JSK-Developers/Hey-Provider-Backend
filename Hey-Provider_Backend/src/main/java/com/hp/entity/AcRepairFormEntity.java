@@ -41,9 +41,9 @@ public class AcRepairFormEntity {
 	}
 
 	public AcRepairFormEntity(Long id, String name, Long number, Date date, String time, String addresss1,
-			String landmark, String city, Long pincode, Long providerid, Long userid, Long end_services_otp,
+			String landmark, String city, Long pincode,Long total,  Long userid, Long providerid,Long activeStatus,Long end_services_otp,
 			Long window_ac_service, Long split_ac_service, Long less_no_cooling, Long ac_not_starting, Long noise_issue,
-			Long water_leakege, Long total,Long activeStatus) {
+			Long water_leakege) {
 		super();
 		this.id = id;
 		this.name = name;

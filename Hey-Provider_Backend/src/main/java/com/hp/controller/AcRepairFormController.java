@@ -34,7 +34,7 @@ public class AcRepairFormController {
 //	}
 	
 	@GetMapping("AllData")
-	public List<AcRepairFormDatadto> getAllUserServiceData(){
+	public List<AcRepairFormEntity> getAllUserServiceData(){
 		return acRepairFormService.getAllUserServiceData();
 	}
 	@GetMapping("AllCompletedData/{id}")
@@ -51,8 +51,14 @@ public class AcRepairFormController {
 	}
 	
 	@RequestMapping("/serviceDetail/{id}")
-	public AcRepairFormDatadto getSingleAcUser(@PathVariable Long id){
+	public AcRepairFormEntity getSingleAcUser(@PathVariable Long id){
 		return acRepairFormService.getSingleAcUser(id);
+	}
+	
+	@PutMapping("/updateService/{id}")
+	public ResponseEntity<AcRepairFormEntity> updateDetail(@PathVariable long id,@RequestBody AcRepairFormEntity acRepairFormEntity){
+		acRepairFormEntity.setId(id);
+		return ResponseEntity.ok().body(this.acRepairFormService.updateDetail(acRepairFormEntity));
 	}
 	
 	@RequestMapping("/myOrder/{id}")
