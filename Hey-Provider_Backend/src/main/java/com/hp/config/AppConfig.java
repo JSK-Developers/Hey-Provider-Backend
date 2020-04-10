@@ -13,8 +13,9 @@ public class AppConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry.addMapping("/**")
                 .allowedOrigins("*")
-                .allowedOrigins("http://localhost:4200")
-                .allowedOrigins("http://localhost:4201")
+                .allowedOrigins("http://localhost:4200")//professional
+                .allowedOrigins("http://localhost:4300")//user
+                .allowedOrigins("http://localhost:4400")//admin
                 .allowedMethods("*")
                 .maxAge(3600L)
                 .allowedHeaders("*")
