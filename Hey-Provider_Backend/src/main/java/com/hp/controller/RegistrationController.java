@@ -20,7 +20,7 @@ import com.hp.dto.UserDTO;
 import com.hp.entity.Registration;
 import com.hp.service.RegistrationService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://hey-providers.web.app")
 @RequestMapping("/api")
 @RestController
 public class RegistrationController {

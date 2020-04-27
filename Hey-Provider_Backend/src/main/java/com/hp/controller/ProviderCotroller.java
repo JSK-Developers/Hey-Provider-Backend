@@ -20,7 +20,7 @@ import com.hp.dto.UserDTO;
 import com.hp.entity.Provider;
 import com.hp.service.ProviderService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://hey-providers.web.app")
 @RequestMapping("/apiProvider")
 @RestController
 public class ProviderCotroller {
