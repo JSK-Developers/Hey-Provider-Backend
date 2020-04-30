@@ -14,6 +14,7 @@ public class AppConfig implements WebMvcConfigurer {
         corsRegistry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedOrigins("https://hey-providers.web.app")
+                .allowedOrigins("https://hey-provider-professional.web.app")
                 .allowedMethods("*")
                 .maxAge(3600L)
                 .allowedHeaders("*")

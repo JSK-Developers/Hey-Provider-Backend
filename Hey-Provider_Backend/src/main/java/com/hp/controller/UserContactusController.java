@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hp.entity.UserContactus;
 import com.hp.service.UserContactusService;
 
-@CrossOrigin(origins = "https://hey-providers.web.app")
+@CrossOrigin(origins = "https://hey-provider-professional.web.app")
 @RequestMapping("/apiContactus")
 @RestController
 public class UserContactusController {

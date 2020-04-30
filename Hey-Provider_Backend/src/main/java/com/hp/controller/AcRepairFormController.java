@@ -19,7 +19,7 @@ import com.hp.entity.AcRepairFormEntity;
 import com.hp.entity.Registration;
 import com.hp.service.AcRepairFormService;
 
-@CrossOrigin(origins = "https://hey-providers.web.app")
+@CrossOrigin(origins = "https://hey-provider-professional.web.app")
 @RequestMapping("/api")
 @RestController
 public class AcRepairFormController {
